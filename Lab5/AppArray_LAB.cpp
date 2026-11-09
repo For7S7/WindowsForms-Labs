@@ -138,8 +138,39 @@ void Matrix()
 
 int main(array<System::String ^> ^args)
 {
-    //GenerateVector();
-    Matrix();
+    int choice;
+
+    Console::WriteLine(L"Select a task:");
+    Console::WriteLine(L"1. Generate vector");
+    Console::WriteLine(L"2. Matrix operations");
+    Console::WriteLine(L"0. Exit");
+
+    Console::Write(L"Your choice: ");
+
+    if (!Int32::TryParse(Console::ReadLine(), choice))
+    {
+        Console::WriteLine(L"Invalid input!");
+        return 0;
+    }
+
+    switch (choice)
+    {
+    case 1:
+        GenerateVector();
+        break;
+
+    case 2:
+        Matrix();
+        break;
+
+    case 0:
+        return 0;
+
+    default:
+        Console::WriteLine(L"Invalid choice!");
+        break;
+    }
+
     return 0;
 }
 
